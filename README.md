@@ -10,7 +10,7 @@ GUI endpoint: /
 Post endpoint uses HMAC authentication, which can be demo'd using the form on the GUI.
 In real world environments there would be DB interaction for getting secrets and checking public keys
 
-The endpoint expects a 'message' key along with the hmac auth fields.
+The endpoint expects the 'message' along with the hmac auth fields.
 ```
 [
     'userId'              => '1',
@@ -29,8 +29,6 @@ The endpoint expects a 'message' key along with the hmac auth fields.
     'auth_signature'  => 'ec9783df15062176a54afb3e7e10cfc95d8b0d179b46367bdc3e2dbb0f183329'
 ]
 ```
-
-
 
 The secret key:   ```"e249c439ed7697df2a4b045d97d4b9b7e1854c3ff8dd668c779013653913572e"```   
 The public key:   ```"trader_account"```  
