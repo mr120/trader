@@ -48,6 +48,7 @@ class Request {
 
     private function getJsonString()
     {
+
         $params = array_merge($this->_params, $this->_auth_params);
 
         ksort($params);

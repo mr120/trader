@@ -39,7 +39,7 @@ class DefaultController
         $messageModel = new \Trader\Message($app['orm.em'], $app['validator']);
 
         // get message from post vars
-        $messageParam = $app['request']->get('message');
+        $messageParam = $app['request']->request->all();
 
         // validate message and create new message entity on success
         $message = $messageModel->createMessage($messageParam);
@@ -109,16 +109,14 @@ class DefaultController
         $this->isJson = true;
 
         $message = [
-            'message' => [
-                'userId' => '1',
-                'currencyFrom' => $app['request']->get('currencyFrom'),
-                'currencyTo' => $app['request']->get('currencyTo'),
-                'amountSell' => $app['request']->get('amountSell'),
-                'amountBuy' => $app['request']->get('amountBuy'),
-                'rate' =>  $app['request']->get('amountBuy') / $app['request']->get('amountSell'),
-                'timePlaced' => date('Y-m-d H:i:s'),
-                'originatingCountry' => 'GB'
-            ]
+            'userId' => '1',
+            'currencyFrom' => $app['request']->get('currencyFrom'),
+            'currencyTo' => $app['request']->get('currencyTo'),
+            'amountSell' => $app['request']->get('amountSell'),
+            'amountBuy' => $app['request']->get('amountBuy'),
+            'rate' =>  $app['request']->get('amountBuy') / $app['request']->get('amountSell'),
+            'timePlaced' => date('Y-m-d H:i:s'),
+            'originatingCountry' => 'GB'
         ];
 
         $token = new \Trader\Auth\Hmac\Token('trader_account','e249c439ed7697df2a4b045d97d4b9b7e1854c3ff8dd668c779013653913572e');

@@ -18,7 +18,8 @@ class Auth {
         $this->_uri = $uri;
 
         foreach($params as $key => $val) {
-            $k = strtolower($key);
+            //$k = strtolower($key);
+            $k = $key;
             substr($k, 0, 5) == 'auth_' ? $this->_auth_params[$k] = $val : $this->_params[$k] = $val;
         }
     }

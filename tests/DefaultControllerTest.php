@@ -17,16 +17,14 @@ class DefaultControllerTest extends WebTestCase
     public function testAccess()
     {
         $message = [
-            'message' => [
-                'userId' => '1',
-                'currencyFrom' => 'EUR',
-                'currencyTo' => 'GBP',
-                'amountSell' => 1000,
-                'amountBuy' => 747.10,
-                'rate' => 0.740,
-                'timePlaced' => date('Y-m-d H:i:s'),
-                'originatingCountry' => 'FR'
-            ]
+            'userId' => '1',
+            'currencyFrom' => 'EUR',
+            'currencyTo' => 'GBP',
+            'amountSell' => 1000,
+            'amountBuy' => 747.10,
+            'rate' => 0.740,
+            'timePlaced' => date('Y-m-d H:i:s'),
+            'originatingCountry' => 'FR'
         ];
 
         $token = new \Trader\Auth\Hmac\Token($this->_key, $this->_secret);
@@ -34,7 +32,6 @@ class DefaultControllerTest extends WebTestCase
         $signed_request = $request->sign($token);
 
         $params = array_merge($signed_request, $message);
-
         $client = $this->createClient();
 
         $client->request('POST', '/api/v1/trade/new', $params);
@@ -48,15 +45,13 @@ class DefaultControllerTest extends WebTestCase
     public function testAccessFailed()
     {
         $message = [
-            'message' => [
-                'userId' => '1',
-                'currencyFrom' => 'EUR',
-                'currencyTo' => 'GBP',
-                'amountSell' => 1000,
-                'amountBuy' => 747.10,
-                'rate' => 0.740,
-                'timePlaced' => date('Y-m-d H:i:s'),
-            ]
+            'userId' => '1',
+            'currencyFrom' => 'EUR',
+            'currencyTo' => 'GBP',
+            'amountSell' => 1000,
+            'amountBuy' => 747.10,
+            'rate' => 0.740,
+            'timePlaced' => date('Y-m-d H:i:s')
         ];
 
         $token = new \Trader\Auth\Hmac\Token($this->_key, $this->_secret);
@@ -77,18 +72,16 @@ class DefaultControllerTest extends WebTestCase
 
     public function testAccessDenied()
     {
-        $message = array(
-            'message' => array(
-                'userId' => '1',
-                'currencyFrom' => 'EUR',
-                'currencyTo' => 'GBP',
-                'amountSell' => 1000,
-                'amountBuy' => 747.10,
-                'rate' => 0.740,
-                'timePlaced' => date('Y-m-d H:i:s'),
-                'originatingCountry' => 'FR'
-            )
-        );
+        $message = [
+            'userId' => '1',
+            'currencyFrom' => 'EUR',
+            'currencyTo' => 'GBP',
+            'amountSell' => 1000,
+            'amountBuy' => 747.10,
+            'rate' => 0.740,
+            'timePlaced' => date('Y-m-d H:i:s'),
+            'originatingCountry' => 'FR'
+        ];
 
         $token = new \Trader\Auth\Hmac\Token('trader_accounter', $this->_secret);
         $request = new \Trader\Auth\Hmac\Request('POST','/api/v1/trade/new',$message);

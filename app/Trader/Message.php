@@ -19,6 +19,9 @@ class Message {
 
     public function validateArray($message)
     {
+        $filter = [
+            'userId','currencyFrom','currencyTo','amountBuy','amountSell','rate','timePlaced','originatingCountry'
+        ];
         $constraint = new Assert\Collection([
             'userId' => new Assert\NotBlank(),
             'currencyFrom' => new Assert\NotBlank(),
@@ -30,7 +33,9 @@ class Message {
             'originatingCountry' => new Assert\NotBlank()
         ]);
 
-        $errors = $this->_validator->validateValue($message, $constraint);
+        $filtered_message = array_intersect_key($message, array_flip($filter));
+
+        $errors = $this->_validator->validateValue($filtered_message, $constraint);
 
         return $errors;
     }
@@ -44,7 +49,10 @@ class Message {
 
             foreach($message_param as $field => $val){
                 $func = 'set' . ucfirst($field);
-                $message->$func($val);
+                if(method_exists($message, $func)) {
+                    $message->$func($val);
+                }
+
             }
 
             $message->setTimePlaced(new \DateTime($message->getTimePlaced()));
