@@ -10,7 +10,7 @@ namespace Trader\Auth\Hmac {
 
 namespace {
 
-    class RequestTest extends PHPUnit_Framework_TestCase {
+    class AuthTest extends PHPUnit_Framework_TestCase {
 
         private $params;
         private $token;
