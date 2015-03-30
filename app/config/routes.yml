@@ -1,0 +1,33 @@
+# config/routes.yml
+
+home:
+  path: /
+  defaults: { _controller: 'Controller\DefaultController::indexAction' }
+  methods:  [GET]
+
+new-message:
+  path: /post/message
+  defaults: { _controller: 'Controller\Api\DefaultController::sendMessageAction' }
+  methods:  [POST]
+
+
+
+api_new-message:
+  path: /api/v1/trade/new
+  defaults: { _controller: 'Controller\Api\DefaultController::indexAction' }
+  methods:  [POST]
+
+api_get-messages:
+  path: /api/v1/trade/get
+  defaults: { _controller: 'Controller\Api\DefaultController::getAction' }
+  methods:  [GET]
+
+api_get-pair-messages:
+  path: /api/v1/trade/get/{from}/{to}
+  defaults: { _controller: 'Controller\Api\DefaultController::getPairAction' }
+  methods:  [GET]
+
+api_get-pair-stats-messages:
+  path: /api/v1/trade/get/stats/{from}/{to}
+  defaults: { _controller: 'Controller\Api\DefaultController::getPairStatsAction' }
+  methods:  [GET]

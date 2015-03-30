@@ -1,0 +1,82 @@
+{% extends '/Base/body.html.twig' %}
+
+{% set body_id = 'landing-page' %}
+
+{% set angular_app = 'mainApp' %}
+{% set angular_controller = 'tradeController' %}
+
+{% block content %}
+
+    <!-- Header -->
+    <header style="background:#dd1144;padding-top:50px">
+        <nav class="navbar navbar-default navbar-fixed-top" >
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/#/">Trader</a>
+                </div>
+            </div>
+        </nav>
+
+        <div>
+            <form method="POST" action="/post/message" id="form" name="form" role="form" style="width:40%;text-align:left;padding:20px;margin:auto" class="form-horizontal" ng-submit="processForm($event)" >
+                <div class="form-group">
+                    <label for="currencyFrom" class="control-label col-md-4">Currency From</label>
+                    <div class="col-md-8">
+                        <select name="currencyFrom" id="currencyFrom" class="form-control" ng-model="formData.currencyFrom">
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="USD">USD</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="currencyTo" class="control-label col-md-4">Currency To</label>
+                    <div class="col-md-8">
+                        <select name="currencyTo" id="currencyTo" class="form-control" ng-model="formData.currencyTo">
+                            <option value="GBP">GBP</option>
+                            <option value="EUR">EUR</option>
+                            <option value="USD">USD</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="amountBuy" class="control-label col-md-4">Amount Buy</label>
+                    <div class="col-md-8">
+                        <input type="text" name="amountBuy" id="amountBuy" class="form-control" placeholder="Amount Buy..." ng-model="formData.amountBuy" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="amountSell" class="control-label col-md-4">Amount Sell</label>
+                    <div class="col-md-8">
+                        <input type="text" name="amountSell" id="amountSell" class="form-control" placeholder="Amount Sell..." ng-model="formData.amountSell" />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-default pull-right" >Submit</button>
+                <hr style="border:transparent;background:transparent;clear:both" />
+            </form>
+        </div>
+    </header>
+    <div class="container main">
+        <div ng-view>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block angular_block %}
+    {% set folderName = 'company-profile' %}
+    {% set withCore = 1 %}
+    {% include '/Base/includes/angular_block.html.twig' %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

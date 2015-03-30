@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-12">
+        <table class="trades">
+            <thead>
+                <tr>
+                    <th>Currency Pair</th>
+                    <th>Amount Sent</th>
+                    <th>Amount Received</th>
+                    <th>Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="message in messages" ng-click="go('pair/' + message.currencyFrom + '/' + message.currencyTo)">
+
+                        <td>{{ message.currencyFrom }}/{{ message.currencyTo }}</td>
+                        <td>{{ message.amountSell }}</td>
+                        <td>{{ message.amountBuy }}</td>
+                        <td>{{ message.rate }}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

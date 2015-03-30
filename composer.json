@@ -1,0 +1,39 @@
+{
+    "authors": [
+        {
+            "name": "Wayne Poole",
+            "email": "mr12086@gmail.com"
+        }
+    ],
+    "require": {
+
+        "silex/silex": "1.*",
+        "silex/web-profiler": "1.0.*@dev",
+        "symfony/browser-kit": "~2.3",
+        "symfony/config": "2.2.0",
+        "symfony/yaml": "~2.4",
+        "symfony/translation": "~2.3",
+        "symfony/form": "~2.3",
+        "symfony/security": "~2.3",
+        "symfony/validator": "~2.3",
+        "symfony/twig-bridge": "~2.3",
+        "symfony/doctrine-bridge": "~2.3",
+        "symfony/monolog-bridge": "~2.3",
+
+
+
+        "twig/twig": ">=1.8,<2.0-dev",
+        "mheap/Silex-Assetic": "*",
+        "monolog/monolog": ">=1.0.0",
+        "dflydev/doctrine-orm-service-provider": "1.*",
+        "saxulum/saxulum-doctrine-orm-manager-registry-provider": "2.*@dev",
+        "phpunit/phpunit": "4.5.*",
+        "mockery/mockery": "0.9.*"
+
+    },
+    "autoload": {
+        "psr-0": {
+            "": "app/"
+        }
+    }
+}

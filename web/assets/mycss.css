@@ -1,0 +1,10 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800);
+
+body{ text-align: center; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 13pt; }
+
+.trades {  width:100% }
+.trades td, .trades th { width:25%; text-align:center; }
+.trades td, .trades th { width:25%; text-align:center; }
+.trades tbody tr {cursor: pointer; }
+.trades tbody tr:nth-child(even) {background: #CCC; }
+.trades tbody tr:nth-child(odd) {background: #FFF; }

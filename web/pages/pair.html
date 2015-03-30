@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-12">
+        <div google-chart chart="chart" style="height:200px;background:#ccc"></div>
+        <table class="trades">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Rate</th>
+                <th>{{ from }}</th>
+                <th>{{ to }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="message in messages">
+                <td>{{ message.timePlaced.date }}</td>
+                <td>{{ message.rate }}</td>
+                <td>{{ message.amountSell }}</td>
+                <td>{{ message.amountBuy }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
