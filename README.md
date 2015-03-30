@@ -35,5 +35,5 @@ HMAC fields would look similar to.
 ]
 ```
 
-The secret key for this project is statically set to : "e249c439ed7697df2a4b045d97d4b9b7e1854c3ff8dd668c779013653913572e"
+The secret key for this project is statically set to :   ```"e249c439ed7697df2a4b045d97d4b9b7e1854c3ff8dd668c779013653913572e"```   
 The Hmac Authentication files are at: Trader/Auth/Hmac
