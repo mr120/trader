@@ -6,7 +6,7 @@ myApp.controller('tradeController', ['$scope', '$http', '$location', function($s
             $scope.messages = data;
         })
         .error(function (data) {
-            console.log('failed to get messages');
+            //console.log('failed to get messages');
         });
 
     $scope.go = function ( path ) {
@@ -45,12 +45,12 @@ myApp.controller('pairController', ['$scope', '$http', '$location', '$routeParam
             $scope.messages = data;
         })
         .error(function (data) {
-            console.log('failed to get messages');
+            //console.log('failed to get messages');
         });
 
     $http.get('/api/v1/trade/get/stats/' + $routeParams.from + '/' + $routeParams.to)
         .success(function (data) {
-            console.log(data);
+            //console.log(data);
             var arr = [];
             $(data).each(function(key, value){
 
