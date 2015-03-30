@@ -34,4 +34,22 @@ The secret key:   ```"e249c439ed7697df2a4b045d97d4b9b7e1854c3ff8dd668c7790136539
 The public key:   ```"trader_account"```  
 The Hmac Authentication files are at: Trader/Auth/Hmac
 
+The authentication requires:  
+```
+$message = [];
+$token = new Token($key, $secret);
+$request = new Request('POST', '/api/v1/trade/new', $message);
+$signed_request = $request->sign($token);
+$params = array_merge($signed_request, $message);
+
+```
+Then using perhaps curl
+```
+...
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
+...
+```
+
+
+
 Use create_db.sql to generate the required db.
