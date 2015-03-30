@@ -13,7 +13,6 @@ In real world environments there would be DB interaction for getting secrets and
 The endpoint expects a 'message' key along with the hmac auth fields.
 ```
 [
-  'message' => [
     'userId'              => '1',
     'currencyFrom'        => 'EUR,
     'currencyTo'          => 'GBP',
@@ -22,18 +21,16 @@ The endpoint expects a 'message' key along with the hmac auth fields.
     'rate'                => 1.6,
     'timePlaced'          => 2014-02-15 20:15:10,
     'originatingCountry'  => 'GB'
-  ]
+    ...
+    
+    'auth_version'    => '1.0',
+    'auth_key'        => 'test',
+    'auth_timestamp'  => 1427724158,
+    'auth_signature'  => 'ec9783df15062176a54afb3e7e10cfc95d8b0d179b46367bdc3e2dbb0f183329'
 ]
 ```
-HMAC fields would look similar to.
-```
-[
-  'auth_version'    => '1.0',
-  'auth_key'        => 'test',
-  'auth_timestamp'  => 1427724158,
-  'auth_signature'  => 'ec9783df15062176a54afb3e7e10cfc95d8b0d179b46367bdc3e2dbb0f183329'
-]
-```
+
+
 
 The secret key:   ```"e249c439ed7697df2a4b045d97d4b9b7e1854c3ff8dd668c779013653913572e"```   
 The public key:   ```"trader_account"```  
